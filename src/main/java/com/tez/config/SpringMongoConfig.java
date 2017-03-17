@@ -20,4 +20,5 @@ public class SpringMongoConfig extends AbstractMongoConfiguration {
 	public Mongo mongo() throws Exception {
 		return new MongoClient("127.0.0.1");
 	}
+        
 }

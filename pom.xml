@@ -11,10 +11,44 @@
             <maven.compiler.source>1.8</maven.compiler.source>
             <maven.compiler.target>1.8</maven.compiler.target>
         </properties>
-	<dependencies>
+        
+        <parent>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-parent</artifactId>
+            <version>1.5.2.RELEASE</version>
+        </parent>
 
+        <dependencies>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-test</artifactId>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+			<groupId>org.springframework</groupId>
+                        <artifactId>spring-core</artifactId>
+                </dependency>
+                <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+                <dependency>
+			<groupId>org.springframework.data</groupId>
+                        <artifactId>spring-data-mongodb</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>com.jayway.jsonpath</groupId>
+                    <artifactId>json-path</artifactId>
+                    <scope>test</scope>
+                </dependency>
+        
+                
 		<!-- Spring framework -->
-		<dependency>
+<!--		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>3.2.2.RELEASE</version>
@@ -24,7 +58,7 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>3.2.2.RELEASE</version>
-		</dependency>
+		</dependency>-->
 
 		<!-- mongodb java driver -->
 		<dependency>
@@ -33,29 +67,30 @@
 			<version>2.11.0</version>
 		</dependency>
 		
-		<!-- Spring data mongodb -->
+		<!-- Spring data mongodb 
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-mongodb</artifactId>
 			<version>1.2.0.RELEASE</version>
-		</dependency>
+		</dependency>-->
 
 		<dependency>
 			<groupId>cglib</groupId>
 			<artifactId>cglib</artifactId>
 			<version>2.2.2</version>
 		</dependency>
-	 <dependency>
+                
+                <dependency>
+                        <groupId>org.jsoup</groupId>
+                        <artifactId>jsoup</artifactId>
+                        <version>1.10.2</version>
+                        <type>jar</type>
+                </dependency>
+<!--	 <dependency>
 	  <groupId>org.slf4j</groupId>
 	  <artifactId>slf4j-simple</artifactId>
 	  <version>1.7.21</version>
-	 </dependency>
-	 <dependency>
-	  <groupId>org.jsoup</groupId>
-	  <artifactId>jsoup</artifactId>
-	  <version>1.10.2</version>
-	  <type>jar</type>
-	 </dependency>
+	 </dependency>-->
 	</dependencies>
 
 	<build>
@@ -77,7 +112,23 @@
 					<downloadJavadocs>true</downloadJavadocs>
 				</configuration>
 			</plugin>
-		</plugins>
+                        <plugin>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-maven-plugin</artifactId>
+                        </plugin>
+                </plugins>
 	</build>
+        <repositories>
+        <repository>
+            <id>spring-releases</id>
+            <url>https://repo.spring.io/libs-release</url>
+        </repository>
+        </repositories>
+        <pluginRepositories>
+            <pluginRepository>
+                <id>spring-releases</id>
+                <url>https://repo.spring.io/libs-release</url>
+            </pluginRepository>
+        </pluginRepositories>
 
 </project>
